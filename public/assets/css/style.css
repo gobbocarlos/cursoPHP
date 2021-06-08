@@ -1,0 +1,690 @@
+@import 'feed-item.css';
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::placeholder {
+    color:#A2B4C9;
+}
+#menuLateral nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FF0000;
+    width: 200px;
+    padding-top: 20px;
+    min-height: 100vh;
+}
+
+#menuLateral nav  a{
+    text-decoration: none;
+    color:white;
+    width: 100%;
+   
+    padding:20px;
+    text-align: center;
+    
+}
+#menuLateral nav .menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+#menuLateral nav .menu a:hover{
+    background-color: white;
+    color: #FF0000;
+    font-weight: bold;
+}
+#menuLateral nav .login{
+    margin-top: 30px;
+    padding:15px;
+}
+#menuLateral nav .login a:hover{
+    background-color: white;
+    color: #FF0000;
+    font-weight: bold;
+}
+
+#menuLateral nav .user-area-icon{
+    min-width: 100px;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+#menuLateral nav .user-area-icon img{
+    width: 200px;
+    height: 200px;
+    
+}
+.fa{
+    color: black;
+}
+.container{
+    display: flex;
+    
+}
+.container .main{
+    display: flex;
+    flex-direction: column;
+    min-width: calc(100vw - 200px);
+}
+.container .main .tituloTexto{
+    width: 100%;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+}
+#titulo{
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: black 1px 2px;
+}
+.container .main .tituloImagens{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.container .main .tituloImagens img{
+    width: 300px;
+    height: 300px;
+}
+.iniciais{
+    color: #FF0000;
+    font-size: 40px;
+}
+#tituloDescricao{
+    display: flex;
+    flex-direction: column;
+   
+}
+#botaoCaminhoDescricao{
+    
+    align-self: center;
+}
+#tituloTextoDescricao{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#botaoCaminho,#botaoCaminho1,#botaoCaminho2,#botaoCaminho3{
+    border:1px solid #FF0000;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 30px 10px 30px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #FF0000;
+    text-align: center;
+    
+}
+
+#botaoCaminho:hover,#botaoCaminho1:hover,#botaoCaminho2:hover,#botaoCaminho3:hover{
+    background-color: #FF0000;
+    color: white;
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    min-width: calc(100vw - 200px);
+    height: 400px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+.linkDescricao{
+    display: flex;
+    padding:10px;
+    flex-wrap: wrap;
+    z-index: 2;
+    justify-content: center;
+    height: 50px;
+    
+}
+
+.link1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex:1;
+    height: 100%;
+    margin:20px;
+}
+.link2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex:1;
+    height: 100%;
+    margin:20px;
+}
+.link3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex:1;
+    height: 100%;
+    margin:20px;
+}
+#imagemCalendarioFundo, #imagemApontamentoFundo, #imagemFotosFundo{
+    display: flex;
+    width: 100%;
+     z-index: -1;
+     height: 300px;
+     justify-content: center;
+}
+#calendario,#apontamento,#fotos{
+    opacity: 0.5;
+    height: 100%;
+    width: 60%;
+   
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    min-width:calc(100vw - 200px);
+    justify-content: center;
+    align-items: center;
+    
+}
+.footer .footer-left{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+.footer .footer-center{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+.footer .footer-right{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+.usuarioPerfil{
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    width: 100%;
+    
+}
+.usuarioPerfilFoto{
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.usuarioFoto{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background-image: url("../../assets/images/avatars/kk.jpg");
+}
+.usuarioPerfilDados{
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imagemFutebolPerfil{
+    width: 70px;
+    height: 70px;
+}
+.dadosPerfilJogos{
+    display: flex;
+    align-items: center;
+}
+.usuarioDadosAno{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    
+}
+.usuarioDadosAno h1{
+    font-size: 60px;
+}
+.tituloSobre{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+   
+}
+.descricaoSobre{
+    word-wrap: break-word;
+    font-size: 25px;
+    color:black;
+    margin: 50px;
+    padding:20px;
+    background-color: lightgray;
+}
+.uniformes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+.uniformeFotos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+.uniformeFotos img{
+    width: 400px;
+    height: 450px;
+}
+.jogos{
+    margin: 20px;
+}
+.tabelaJogos{
+    width: 100%;
+}
+.tabelaJogos thead{
+    background-color: #FF0000;
+    color: white;
+    
+}
+.tabelaJogos tbody td{
+    
+    text-align: center;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+   
+}
+.tabelaJogos tbody tr:hover{
+    background-color:lightgray ;
+    font-weight: bold;
+}
+#tituloTextoJogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.campoEscalacao{
+    display: flex;
+    flex-direction: row;
+    background-image: url("../../assets/images/Campo.jpg");
+    background-size: cover;
+    width: 1100px;
+    height: 700px;
+}
+.jogoDados{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.listaEscalacao{
+    display: flex;
+    
+}
+.j1, .j2, .j3, .j4, .j5,.j6, .j7, .j8, .j9, .j10,.j11{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+#jogador{
+    width: 60px;
+    height: 60px;
+}
+.goleiro{
+   padding-top:330px;
+   padding-left:80px;
+}
+.defesa{
+    padding-left: 100px;
+    padding-top:50px;
+    
+}
+.defesa .j2{
+   margin-top:45px;
+}
+.defesa .j3{
+    margin-top:65px
+ }
+ .defesa .j4{
+    margin-top:185px;
+ }
+ .defesa .j5{
+    margin-top:75px
+ }
+ .meio{
+    padding-left: 100px;
+    padding-top:50px;
+    margin-left:180px;
+}
+.meio .j6{
+   margin-top:45px
+}
+.meio .j7{
+    margin-top:65px
+ }
+ .meio .j8{
+    margin-top:185px;
+ }
+ .meio .j9{
+    margin-top:75px
+ }
+ .ataque{
+    padding-left: 100px;
+    padding-top:230px;
+    margin-left:180px;
+}
+.ataque .j10{
+   margin-top:45px
+}
+.ataque .j11{
+    margin-top:65px
+ }
+ 
+ .feed .box {
+    background-color: #FFF;
+    border:1px solid #c9cacc;
+    border-radius:5px;
+    margin-bottom:10px;
+}
+.box .box-header {
+    padding:10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.box .box-header-text {
+    flex:1;
+}
+.box .box-header-text span {
+    color:#999;
+}
+.box .box-header-buttons a {
+    font-size:13px;
+    color:#999;
+    text-decoration: none;
+}
+.box .box-body img {
+    max-width:100%;
+}
+
+.feed .border-top-flat {
+    border-top:0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.feed .row {
+    display:flex;
+}
+.feed .column {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex:1;
+}
+.feed .side {
+    flex:none;
+    width:250px;
+}
+
+
+.feed-new-editor {
+    align-items: center;
+}
+.feed-new-avatar {
+    margin-right:10px;
+}
+.feed-new-avatar img {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+.feed-new-input-placeholder {
+    flex:1;
+    font-size:14px;
+    color:#333;
+}
+.feed-new-input {
+    flex:1;
+    outline:0;
+    border:0;
+    font-size:14px;
+    display: none;
+    color:#333;
+}
+.feed-new-send {
+    cursor: pointer;
+    margin-right:5px;
+}
+.feed-new-send img {
+    width:25px;
+    height:25px;
+}
+.painelDeControlePagina{
+    width: 100%;
+}
+.paineldecontrole{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 50px;
+    width: 100%;
+}
+.paineldecontrole .JogosBotoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    border:1px solid #FF0000;
+}
+.paineldecontrole .Jogos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+}
+.paineldecontrole .Usuarios{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    
+}
+
+.paineldecontrole .Galeria{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+}
+.paineldecontrole .botaoPainelDeControle{
+    padding: 10px;
+    background-color: #FFF;
+    color: #FF0000;
+    font-size: 20px;
+    border:1px solid #FF0000;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 50px;
+}
+.paineldecontrole .botaoPainelDeControle:hover{
+    background-color: #FF0000;
+    color:white;
+    font-weight: bold;
+}
+
+.modal{
+    position:fixed;
+    left:45%;
+    top:20%;
+    bottom:0;
+    right:0;
+    background-color:rgba(255, 255, 255, 0.5);
+    display:none;
+    transition: all ease .5s;
+    justify-content: center;
+    align-items: center;
+    overflow-y:auto;
+}
+.modal .modalBody form{
+    width:300px;
+    height: 420px;
+    background-color:#FF0000;
+    border-radius:10px;
+    box-shadow:0px 0px 15px black;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal .modalBody input{
+    height: 25px;
+    width: 250px;
+    background-color: white;
+    border-radius: 5px;
+    border:none;
+    margin-bottom: 20px;
+    text-align: center;
+}
+ #fecharModal{
+   align-self: flex-end;
+   padding: 5px;
+}
+.modal .modalBody label{
+    color: white;
+    font-weight: bold;
+}
+.modal .modalBody #lancarDadosJogo{
+    padding: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+.modal .modalBody #lancarDadosJogo:hover{
+    background-color: white;
+}
+.dadosJogoEditar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#dadosJogo{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+}
+.dadosJogoEditar h1{
+    align-self: center;
+    text-decoration-line: underline;
+    margin-bottom: 20px;
+}
+.dadosJogoEditar input{
+    border:none;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    background-color: #FF0000;
+    color: white;
+    font-weight: bold;
+}
+.dadosJogoEditar a{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #FF0000;
+    color: white;
+}
+.dadosJogoEditar a i{
+    color:white;
+}
+.classificacaoJogadores{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+}
+.classificacaoJogadores h1{
+    justify-self: flex-start;
+    margin-bottom: 20px;
+}
+.classificacaoJogadores select{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    border: none;
+    background-color: #FF0000;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.classificacaoJogadores input{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+}
+.classificacaoJogadores input::placeholder{
+    color:white;
+}
+.classificacaoJogadores a{
+  align-self: center;
+}
+.dadosJogoEditar a:hover{
+    background-color: white;
+    border:1px solid #FF0000;
+}
+.dadosJogoEditar a i:hover{
+    color:#FF0000;
+}
+.jogadoresDados{
+    display: flex;
+    flex:2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+}
+#idJogo{
+    left: 0;
+    top: 0;
+    z-index: -99;
+    opacity: 0;
+}
