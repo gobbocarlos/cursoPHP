@@ -17,3 +17,4 @@ $router->get('/jogos', 'JogoController@index');
 $router->post('/jogoAdd', 'JogoController@jogoadd');
 $router->get('/jogoeditar/{id}', 'JogoController@jogoeditar');
 $router->get('/paineldecontrole', 'PainelDeControleController@index');
+$router->post('/ajax/dadosjogo','AjaxController@dadosjogo');//rota adicionada para a requisição ajax

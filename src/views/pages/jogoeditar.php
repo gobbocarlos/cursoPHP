@@ -33,7 +33,7 @@
                 <input type="text" name="posicao" placeholder="Digite a posição abreviada" />
                 <label for="nota">Nota</label>
                 <input type="number" name="nota" placeholder="Digite a nota fracionada por ponto" />
-                <a href="" onclick="teste()" id="lancar"><i class="fa fa-check" aria-hidden="true"></i></a>
+                <a  onclick="lancarDadosJogo()" id="lancar"><i class="fa fa-check" aria-hidden="true"></i></a><!--retirei o href-->
             </div>
        
             <div class="jogadoresDados">
@@ -47,12 +47,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            
-                        </tr>
-                        <tr>
-                            
-                        </tr>
                     </tbody>
                 </table>
             </div>

@@ -42,7 +42,7 @@ class AjaxController extends Controller {
         echo json_encode($array);
         exit;
    }
-   public function comment(){
+  /* public function comment(){
     $array = ['error'=>''];   
     $id= filter_input(INPUT_POST,'id');
        $txt= filter_input(INPUT_POST,'txt');
@@ -56,7 +56,7 @@ class AjaxController extends Controller {
        header("Content-Type: application/json");
            echo json_encode($array);
            exit;
-   }
+   }*/
   /* public function upload(){
        $array=['error'=>''];
         if(isset($_FILES['photo'])$$ !empty($_FILES['photo']['tmp_name'])){
