@@ -3,6 +3,7 @@ namespace src\controllers;
 use \core\Controller;
 use \src\handlers\UserHandler;
 use \src\handlers\PostHandler;
+use \src\Models\Jogo;
 class AjaxController extends Controller {
     private $loggedUser;
     public function __construct(){
@@ -23,14 +24,14 @@ class AjaxController extends Controller {
         $golsPro = filter_input(INPUT_POST,'gp');
         $golsContra = filter_input(INPUT_POST,'gc');
         $local = filter_input(INPUT_POST,'local');
-        Jogo::update(
+        Jogo::update([
             'quadro'=>$quadro,
             'adversario'=>$adversario,
             'data'=>$data,
             'golspro'=>$golsPro,
             'golsContra'=>$golsContra,
             'local'=>$local
-        )->where('id',$id)->execute();
+        ])->where('id',$id)->execute();
         header("Content-Type: application/json");
         $array['id']= $id;
         $array['quadro']=$quadro;
