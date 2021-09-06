@@ -113,3 +113,17 @@ function closeModal(){
     setTimeout(()=>{
         document.querySelector('.modal').style.display = "none";document.querySelector('#fecharModal').style.display="none";},500);
 }
+function acessarJogo(id){
+    let jogo = document.querySelector('#'+id).children;
+    if(jogo[3].value==""){
+        alert("Jogo não lançado.");
+    }
+    else{
+        window.location.href = BASE+'/jogo/'+jogo[3].value;
+    }
+    
+}
+
+
+    
+ 

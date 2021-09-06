@@ -6,6 +6,9 @@ use \src\Handlers\UserHandler;
 use \src\Handlers\PostHandler;
 use \src\Handlers\JogoHandler;
 use \src\Models\Jogo;
+use \src\Models\Escalacao;
+use \src\Models\User;
+
 class JogoController extends Controller {
     private $loggedUser;
     public function __construct(){
@@ -46,9 +49,19 @@ class JogoController extends Controller {
    public function jogoeditar($idJogo){
         if($this->loggedUser->id!=1 &&$this->loggedUser->id!=2){
             $this->redirect('/login');
-        }   
+        }
+        $gols = 0;
+        $assistencias = 0;   
         $jogo = Jogo::select()->where('id',$idJogo)->one();
-        $this->render('jogoeditar',['loggedUser'=>$this->loggedUser,'jogo'=>$jogo]);
+        $users = UserHandler::listUsers();
+        $escalacao = [];
+        $escalacao = Escalacao:: select()->where('idjogo',$idJogo)->get();
+       foreach ($escalacao as $key => $novaEscalacao) {
+           $escalacao[$key]['jogador'] = User::select()->where('id',$novaEscalacao['iduser'])->get();
+           $gols = $gols +$novaEscalacao['gol'];
+           $assistencias = $assistencias + $novaEscalacao['assistencia'];
+       }
+        $this->render('jogoeditar',['loggedUser'=>$this->loggedUser,'jogo'=>$jogo,'users'=>$users,'escalacao'=>$escalacao,'gols'=>$gols,'assistencias'=>$assistencias]);
    }
 
 }

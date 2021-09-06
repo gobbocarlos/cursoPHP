@@ -100,4 +100,18 @@ class UserHandler {
 
         }
     }
+    public static function listUsers(){
+        $users=[];
+        $data = User::select()->get();
+        if($data){
+            foreach($data as $user){
+                $newUser = new User();
+                $newUser->id = $user['id'];
+                $newUser->name = $user['nome'];
+                $newUser->avatar = $user['avatar'];
+                $users[] = $newUser; 
+            }
+        }
+        return $users;
+    }
 }

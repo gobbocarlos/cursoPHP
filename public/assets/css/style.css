@@ -67,12 +67,11 @@
 }
 .container{
     display: flex;
-    
 }
 .container .main{
     display: flex;
     flex-direction: column;
-    min-width: calc(100vw - 200px);
+    min-width: calc(100vw - 217px);/*200*/
 }
 .container .main .tituloTexto{
     width: 100%;
@@ -80,8 +79,26 @@
     display: flex;
     justify-content: center;
 }
-#titulo{
+#divtitulo{
+    display: flex;
+    flex-direction: row;
+}
+#traco{
+    color: white;
+    text-shadow: white 1px 2px;
+}
+#divtitulo{
     font-size: 30px;
+    font-weight: bold;
+    text-shadow: black 1px 2px;
+}
+#tituloAno{
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: black 1px 2px;
+}
+#subTitulo{
+    font-size: 20px;
     font-weight: bold;
     text-shadow: black 1px 2px;
 }
@@ -219,11 +236,29 @@
     justify-content: space-between;
     height: 100px;
 }
+.tituloTextoPerfil{
+    width: 100%;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+#tituloPerfilJogador{
+    font-size: 50px;
+    font-weight: bold;
+}
+.jogosCarreira{
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    width: 50%;
+    
+}
 .usuarioPerfil{
     display: flex;
     flex-direction: row;
     height: 500px;
-    width: 100%;
+    width: 50%;
     
 }
 .usuarioPerfilFoto{
@@ -234,8 +269,8 @@
     align-items: center;
 }
 .usuarioFoto{
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     border-radius: 100%;
     background-image: url("../../assets/images/avatars/kk.jpg");
 }
@@ -314,11 +349,33 @@
     border-bottom: 1px solid lightgray;
    
 }
+.tabelaJogos tbody td:first-child{
+    width: 100px;
+}
+.tabelaJogos tbody td:first-child + td{
+    width: 10px;
+}
+.tabelaJogos tbody td:first-child + td + td{
+    width: 10px;
+}
+.tabelaJogos tbody td:first-child + td + td + td{
+    width: 10px;
+}
+.tabelaJogos tbody td:first-child + td + td + td + td{
+    width: 10px;
+}
 .tabelaJogos tbody tr:hover{
     background-color:lightgray ;
     font-weight: bold;
 }
 #tituloTextoJogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+#subTitulo{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -612,6 +669,10 @@
     text-decoration-line: underline;
     margin-bottom: 20px;
 }
+#suspenso{
+    z-index: -99;
+    visibility: hidden;
+}
 .dadosJogoEditar input{
     border:none;
     border-radius: 5px;
@@ -687,4 +748,121 @@
     top: 0;
     z-index: -99;
     opacity: 0;
+    
+}
+/*Página Calendário Index*/
+#tituloTextoCalendario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.calendarioDatas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+}
+
+.calendarioDatas .jogosDatas1Quadro{
+    display: flex;
+    align-items: center;
+}
+.calendarioDatas .jogosDatas2Quadro{
+    display: flex;
+    align-items: center;
+}  
+/*#C1,#C2,#C3,#C4,#C5{*/
+#C1,#C2,#C3,#C4,#C5,#C6,#C7,#C8,#C9,#C10{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    border: solid 2px;
+    border-right: none;
+    width: 300px;
+    height: 250px;
+}
+#C5,#C10{
+    border-right: black solid  2px;
+}
+#C1:hover,#C2:hover,#C3:hover,#C4:hover,#C5:hover,#C6:hover,#C7:hover,#C8:hover,#C9:hover,#C10:hover{
+    background-color: #FF0000;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border:black solid 2px;
+}
+.jogosDatas1Quadro .data{
+    align-self: flex-end;
+    margin-bottom: 80px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+.jogosDatas2Quadro .data{
+    align-self: flex-end;
+    margin-bottom: 80px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+.botoesCalendario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+}
+.botaoCalendarioMovimentar{
+    border: black 1px solid;
+    padding: 10px;
+    border-radius: 100%;
+    cursor:pointer ;
+    font-size: 10px;
+    font-weight: bold;
+}
+.botaoCalendarioMovimentar:hover{
+    border: #FF0000 1px solid;
+    padding: 10px;
+    border-radius: 100%;
+    cursor:pointer ;
+    font-size: 10px;
+    color: white;
+    background-color: #FF0000;
+    font-weight: bold;
+}
+.calendarioDatas input{
+    opacity: 0;
+}
+
+/*perfil*/
+.tabelaJogadores{
+    width: 100%;
+}
+.tabelaJogadores thead{
+    background-color: #FF0000;
+    color: white;
+    
+}
+.tabelaJogadores tbody td{
+    
+    text-align: center;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+   
+}
+.tabelaJogadores tbody td:first-child{
+    width: 10px;
+}
+.tabelaJogadores tbody td:first-child + td{
+    width: 10px;
+}
+.tabelaJogadores tbody td:first-child + td + td{
+    width: 10px;
+}
+
+.tabelaJogadores tbody tr:hover{
+    background-color:lightgray ;
+    font-weight: bold;
 }

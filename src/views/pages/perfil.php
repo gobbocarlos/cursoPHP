@@ -3,24 +3,32 @@
     <?=$render('sidebar',['loggedUser'=>$loggedUser])?>
     <section class="main">
        <div class="tituloTexto">
-            <span id="titulo">Carlos Henrique Cinti Gobbo</span>
+            <span id="titulo">Jogos</span>
         </div>
-        <div class="usuarioPerfil">
-            <div class="usuarioPerfilFoto">
-                <div class="usuarioFoto">
-
-                </div>
-            </div>
-            <div class="usuarioDadosAno">
-               <h1>2021</h1>
-            </div>
-            <div class="usuarioPerfilDados">
-                <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/CampoVertical.jpg"/><strong>-100</strong></div>
-                <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Gol.jpg"/> <strong>-2</strong></div>
-                <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Bola.jpg"/> <strong>-10</strong></div>
-                <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/CartaoAmarelo.png"/><strong>- 1</strong></div>
-                <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/CartaoVermelho.jpg"/><strong>- 10</strong></div>
-            </div>
+        <div class="jogadores">
+            <table class="tabelaJogadores">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Ver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($listaUsuarios as $usuario):?>   
+                        <tr>
+                            <td><?=$usuario['id'];?></td>
+                            <td><?=$usuario['nome'];?></td>
+                            <td>
+                                <a href="<?=$base;?>/perfilJogador/<?=$usuario['id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <?php if($loggedUser->id==1 ||$loggedUser->id==2):?>
+                                    <a href="<?=$base;?>/usuarioEditar/<?=$usuario['id'];?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                <?php endif;?>
+                            </td>
+                        </tr>
+                   <?php endforeach;?>
+                </tbody>
+            </table>
         </div>
         
     </section>

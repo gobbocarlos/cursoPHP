@@ -17,7 +17,7 @@
                     <div class="JogosBotoes">
                     
                         <a class="botaoPainelDeControle" onclick="modalOpen()" href="#modal">Novo Jogo</a>
-                        <a class="botaoPainelDeControle" href="">Editar Jogo</a>
+                        <a class="botaoPainelDeControle" href="<?=$base;?>/jogos">Editar Jogo</a>
                         <a class="botaoPainelDeControle" href="">Notas</a>
                     </div>
                 </div>
