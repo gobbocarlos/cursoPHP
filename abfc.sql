@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Set-2021 às 17:46
+-- Tempo de geração: 09-Set-2021 às 19:52
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 7.4.19
 
@@ -135,7 +135,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nome`, `avatar`, `aniversario`, `email`, `senha`, `token`) VALUES
-(2, 'Carlos Gobbo', 'kk.jpg', '1983-03-03', 'kkgobbo@gmail.com', '$2y$10$79vsi41SRyNJwkDQGjpxP.rPpsGFi1PJ4YeScfCjIJwDQZlMsxKx6', '26b70fac78c486ac48e0dc7fb8b53750'),
+(2, 'Carlos Gobbo', 'kk.jpg', '1983-03-03', 'kkgobbo@gmail.com', '$2y$10$qKP3Uur9Jr4N5QkU7E8omuye34uo3R4hJ3ok6rdb/wA4PTQPjocZ6', '95a3f98abd75a274df45acf30a9e5982'),
 (3, 'Pedro Paulo Pereira', '', '1984-09-12', 'ppp@gmail.com', '$2y$10$pNRBYmHpIZE.CgPCKnFTNuBByzIGHHUe3NfGBxivhIxkHrpymSYua', 'a8ab41db4e2914644be4b22ccfe47ecd'),
 (4, 'Carlos Gobbo', '', '1983-03-03', 'chcgobbo@gmail.com', '$2y$10$6rBrHbX/tS3NG0OtE8toteqjfbNcO6bGGSCa238lz5m.Ob53N3m4.', '45634593680d2dd8b69dc2600eafdd09');
 
