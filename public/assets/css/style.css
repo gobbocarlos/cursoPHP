@@ -92,6 +92,11 @@
     font-weight: bold;
     text-shadow: black 1px 2px;
 }
+#titulo{
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: black 1px 2px;
+}
 #tituloAno{
     font-size: 30px;
     font-weight: bold;
@@ -601,6 +606,64 @@
     font-weight: bold;
 }
 
+.modalEditarJogador{
+    position:fixed;
+    left:45%;
+    top:20%;
+    bottom:0;
+    right:0;
+    background-color:rgba(255, 255, 255, 0.5);
+    display:none;
+    transition: all ease .5s;
+    justify-content: center;
+    align-items: center;
+    overflow-y:auto;
+}
+.modalEditarJogador .modalBody form{
+    width:300px;
+    height: 150px;
+    background-color:#FF0000;
+    border-radius:10px;
+    box-shadow:0px 0px 15px black;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*.modalEditarJogador .modalBody input{
+    height: 25px;
+    width: 250px;
+    background-color: white;
+    border-radius: 5px;
+    border:none;
+    margin-bottom: 20px;
+    text-align: center;
+}*/
+ #fecharModal{
+   align-self: flex-end;
+   padding: 5px;
+}
+.modalEditarJogador .modalBody label{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.modalEditarJogador .modalBody select{
+    font-weight: bold;
+    border-radius: 10px;
+    min-width: 90%;
+    text-align: center;
+}
+.modalEditarJogador .modalBody #jogadorSelecionar{
+    padding: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.modalEditarJogador .modalBody #jogadorSelecionar:hover{
+    background-color: white;
+}
+
+
 .modal{
     position:fixed;
     left:45%;
@@ -866,3 +929,4 @@
     background-color:lightgray ;
     font-weight: bold;
 }
+

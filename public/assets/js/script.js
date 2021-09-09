@@ -107,6 +107,12 @@ function modalOpen(){
     modal.style.display="block";
     btnFechar.style.display="block";
 }
+function modalEditarJogadorOpen(){
+    let btnFechar = document.querySelector('#fecharModal');
+    let modal = document.querySelector('.modalEditarJogador');
+    modal.style.display="block";
+    btnFechar.style.display="block";
+}
 function closeModal(){
     document.querySelector('#fecharModal').style.opacity =0;
     document.querySelector('.modal').style.opacity = 0;

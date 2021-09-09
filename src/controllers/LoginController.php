@@ -3,6 +3,8 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\handlers\UserHandler;
+use \src\models\User;
+
 class LoginController extends Controller {
    
    
@@ -69,6 +71,42 @@ class LoginController extends Controller {
         else{
             $this->redirect('/cadastro');
         }
+    }
+    public function updateAction(){
+        $name = filter_input(INPUT_POST,'name');
+        $birthdate = filter_input(INPUT_POST,'birthdate');
+        $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
+        $password = filter_input(INPUT_POST,'password');
+        $id = filter_input(INPUT_POST,'jogadores');
+        if($name && $birthdate && $email && $id){
+            $birthdate = explode('/',$birthdate);
+            if(count($birthdate)!=3){
+                $_SESSION['flash']='Data de nascimento invalida.';
+                $this->redirect('/cadastroAtualizar');
+            }    
+            $birthdate = $birthdate[2].'-'.$birthdate[1].'-'.$birthdate[0];
+            if(strtotime($birthdate)===false){
+                $_SESSION['flash']='Data de nascimento invalida.';
+                $this->redirect('/cadastroAtualizar');
+            }
+            UserHandler::updateUser($name,$email,$password,$birthdate,$id);
+            $_SESSION['flash'] = "Cadastro Atualizado com SUCESSO!"; 
+            $this->redirect('/cadastroAtualizar');
+        }
+        else{
+            $_SESSION['flash']='Não foi possível alterar o cadastro.';
+            $this->redirect('/cadastroAtualizar');
+        }
+    }
+    public function update(){
+        $flash ='';
+        if(!empty($_SESSION['flash'])){
+            $flash = $_SESSION['flash'];
+            $_SESSION['flash']='';
+        }
+        $id = filter_input(INPUT_GET,'jogadores');
+        $jogador = User::select()->where('id',$id)->one();
+        $this->render('/cadastroAtualizar',['jogador'=>$jogador,'flash'=>$flash]);
     }
     public function logout(){
         $_SESSION['token']='';

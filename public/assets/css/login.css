@@ -106,3 +106,8 @@ form a {
     background-color: #FF0000;
     border-radius: 10px;
 }
+/*Atualizar cadastro*/
+
+#idCadastroInvisivel{
+    visibility: hidden;
+}

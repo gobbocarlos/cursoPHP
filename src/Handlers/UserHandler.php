@@ -2,6 +2,7 @@
 namespace src\handlers;
 use \src\models\User;
 use \src\handlers\PostHandler;
+
 class UserHandler {
     public static function checkLogin(){
         if(!empty($_SESSION['token'])){
@@ -83,22 +84,28 @@ class UserHandler {
         return $users;
     }
    
-    public static function updateUser($fields, $idUser) {
-        if(count($fields) > 0) {
-
-            $update = User::update();
-
-            foreach($fields as $fieldName => $fieldValue) {
-                if($fieldName == 'senha') {
+    public static function updateUser($name,$email,$password,$birthdate,$id) {
+        User::update()->set('nome',$name)->set('email',$email)->set('aniversario',$birthdate)->where('id',$id)->execute();
+        if(!empty($password)){
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            User::update()->set('senha', $hash)->where('id', $id)->execute();
+        }
+        /*$fields = [];
+        $fields['nome']=$name;
+        $fields['email']=$email;
+        $fields['aniversario']=$birthdate;
+        $update = User::update();
+        foreach($fields as $fieldName => $fieldValue) {
+            if($fieldName == 'senha') {
+                if($fieldValue !=""){
                     $fieldValue = password_hash($fieldValue, PASSWORD_DEFAULT);
                 }
-
-                $update->set($fieldName, $fieldValue);
             }
 
-            $update->where('id', $idUser)->execute();
-
+            $update->set($fieldName, $fieldValue);
         }
+
+        $update->where('id', $id)->execute();*/
     }
     public static function listUsers(){
         $users=[];

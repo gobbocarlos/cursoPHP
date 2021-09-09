@@ -4,6 +4,7 @@ namespace src\controllers;
 use \core\Controller;
 use \src\Handlers\UserHandler;
 use \src\Handlers\PostHandler;
+
 class PainelDeControleController extends Controller {
     private $loggedUser;
     public function __construct(){
@@ -17,7 +18,8 @@ class PainelDeControleController extends Controller {
         
     }
     public function index() {
-        $this->render('paineldecontrole',['loggedUser'=>$this->loggedUser]);
+        $users = UserHandler::listUsers();
+        $this->render('paineldecontrole',['loggedUser'=>$this->loggedUser,'users'=>$users]);
     }
    
 }

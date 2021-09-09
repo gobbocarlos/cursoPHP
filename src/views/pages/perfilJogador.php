@@ -6,7 +6,6 @@
                 <span id="tituloPerfilJogador">Carlos Henrique Cinti Gobbo</span>
         </div>
         <div class="container">
-            
             <div class="usuarioPerfil">
                 <div class="usuarioPerfilFoto">
                     <div class="usuarioFoto">
@@ -20,6 +19,7 @@
                     <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/CampoVertical.jpg"/><strong>-<?=$jogosFeito?></strong></div>
                     <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Gol.jpg"/> <strong>-<?=$golsTotal?></strong></div>
                     <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Bola.jpg"/> <strong>-<?=$assTotal?></strong></div>
+                    <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Bola.jpg"/> <strong>-<?=$notaTotal?></strong></div>
                 </div>
             </div>
             <div class="jogosCarreira">
