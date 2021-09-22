@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Set-2021 às 19:52
+-- Tempo de geração: 22-Set-2021 às 21:30
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 7.4.19
 
@@ -89,6 +89,29 @@ INSERT INTO `jogos` (`id`, `adversario`, `data`, `golspro`, `golscontra`, `local
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `notas`
+--
+
+CREATE TABLE `notas` (
+  `userid` int(11) NOT NULL,
+  `defesa` int(11) NOT NULL,
+  `posicionamento` int(11) NOT NULL,
+  `finalizacao` int(11) NOT NULL,
+  `inteligencia` int(11) NOT NULL,
+  `tecnica` int(11) NOT NULL,
+  `fisico` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `notas`
+--
+
+INSERT INTO `notas` (`userid`, `defesa`, `posicionamento`, `finalizacao`, `inteligencia`, `tecnica`, `fisico`) VALUES
+(2, 3, 4, 6, 9, 1, 6);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `postcomments`
 --
 
@@ -135,9 +158,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nome`, `avatar`, `aniversario`, `email`, `senha`, `token`) VALUES
-(2, 'Carlos Gobbo', 'kk.jpg', '1983-03-03', 'kkgobbo@gmail.com', '$2y$10$qKP3Uur9Jr4N5QkU7E8omuye34uo3R4hJ3ok6rdb/wA4PTQPjocZ6', '95a3f98abd75a274df45acf30a9e5982'),
-(3, 'Pedro Paulo Pereira', '', '1984-09-12', 'ppp@gmail.com', '$2y$10$pNRBYmHpIZE.CgPCKnFTNuBByzIGHHUe3NfGBxivhIxkHrpymSYua', 'a8ab41db4e2914644be4b22ccfe47ecd'),
-(4, 'Carlos Gobbo', '', '1983-03-03', 'chcgobbo@gmail.com', '$2y$10$6rBrHbX/tS3NG0OtE8toteqjfbNcO6bGGSCa238lz5m.Ob53N3m4.', '45634593680d2dd8b69dc2600eafdd09');
+(2, 'Carlos Gobbo', 'kk.jpg', '1983-03-03', 'kkgobbo@gmail.com', '$2y$10$qKP3Uur9Jr4N5QkU7E8omuye34uo3R4hJ3ok6rdb/wA4PTQPjocZ6', 'a533cca80a78548b413032835b25a43b'),
+(3, 'Pedro Paulo Pereira', '', '1984-09-12', 'ppp@gmail.com', '$2y$10$pNRBYmHpIZE.CgPCKnFTNuBByzIGHHUe3NfGBxivhIxkHrpymSYua', 'a8ab41db4e2914644be4b22ccfe47ecd');
 
 --
 -- Índices para tabelas despejadas
@@ -154,6 +176,12 @@ ALTER TABLE `escalacaos`
 --
 ALTER TABLE `jogos`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `notas`
+--
+ALTER TABLE `notas`
+  ADD PRIMARY KEY (`userid`);
 
 --
 -- Índices para tabela `postcomments`
@@ -205,7 +233,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
