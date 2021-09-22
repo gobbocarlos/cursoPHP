@@ -56,7 +56,7 @@ class UserHandler {
         }
         return false;
     }
-    public static function addUser($name,$email,$password,$birthdate){
+    public static function addUser($name,$email,$password,$birthdate,$avatarName){
         $hash = password_hash($password,PASSWORD_DEFAULT);
         $token =md5(time().rand(0,9999).time());
         User::insert([
@@ -64,7 +64,8 @@ class UserHandler {
             'senha'=>$hash,
             'nome'=>$name,
             'aniversario'=>$birthdate,
-            'token'=>$token
+            'token'=>$token,
+            'avatar'=>$avatarName
         ])->execute();
         return $token;
     }
@@ -84,8 +85,8 @@ class UserHandler {
         return $users;
     }
    
-    public static function updateUser($name,$email,$password,$birthdate,$id) {
-        User::update()->set('nome',$name)->set('email',$email)->set('aniversario',$birthdate)->where('id',$id)->execute();
+    public static function updateUser($name,$email,$password,$birthdate,$id,$avatarName) {
+        User::update()->set('nome',$name)->set('email',$email)->set('aniversario',$birthdate)->set('avatar',$avatarName)->where('id',$id)->execute();
         if(!empty($password)){
             $hash = password_hash($password, PASSWORD_DEFAULT);
             User::update()->set('senha', $hash)->where('id', $id)->execute();
@@ -121,4 +122,5 @@ class UserHandler {
         }
         return $users;
     }
+   
 }

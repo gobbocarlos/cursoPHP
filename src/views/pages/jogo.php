@@ -8,7 +8,7 @@
             <span id="titulo">Placar: <?=$jogo['golspro'];?> x <?=$jogo['golscontra'];?></span>
         </div>
         <div class="jogoDados">
-            <div class="campoEscalacao">
+            <!--<div class="campoEscalacao">
                <div class="goleiro"> <div class="j1"><img id="jogador" src="<?=$base;?>/assets/images/avatars/kk.jpg" /></div></div>
                <div class="defesa">
                     <div class="j2"><img id="jogador" src="<?=$base;?>/assets/images/avatars/kk.jpg" /></div>
@@ -27,6 +27,20 @@
                     <div class="j11"><img id="jogador" src="<?=$base;?>/assets/images/avatars/kk.jpg" /></div>
                     
                </div>
+            </div>-->
+            <div class="feed">
+                <?=$render('feed-editor',['loggedUser'=>$loggedUser]);?>
+                <?php foreach($feed['posts'] as $feedItem): ?>
+                        <?= $render('feed-item',[
+                            'data'=>$feedItem,
+                            'loggedUser'=>$loggedUser
+                        ]);?>      
+                <?php endforeach; ?>
+                <div class="feed-pagination">
+                    <?php for($q=0;$q<$feed['pageCount'];$q++):?>
+                            <a class="<?=($q==$feed['currentPage'] ? 'active' : '')?>" href="<?=$base;?>/?page=<?=$q;?>"><?=$q+1;?></a>
+                    <?php endfor; ?>           
+                </div>
             </div>
             <div class="listaEscalacao">
                 <table class="tabelaJogos">
@@ -52,20 +66,7 @@
                     </table>
             </div>
         </div>
-        <div class="feed">
-            <?=$render('feed-editor',['loggedUser'=>$loggedUser]);?>
-            <?php foreach($feed['posts'] as $feedItem): ?>
-                    <?= $render('feed-item',[
-                        'data'=>$feedItem,
-                        'loggedUser'=>$loggedUser
-                    ]);?>      
-            <?php endforeach; ?>
-            <div class="feed-pagination">
-                <?php for($q=0;$q<$feed['pageCount'];$q++):?>
-                        <a class="<?=($q==$feed['currentPage'] ? 'active' : '')?>" href="<?=$base;?>/?page=<?=$q;?>"><?=$q+1;?></a>
-                <?php endfor; ?>           
-            </div>
-        </div>
+       
        
     </section>
    

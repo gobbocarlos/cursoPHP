@@ -19,7 +19,12 @@ class PainelDeControleController extends Controller {
     }
     public function index() {
         $users = UserHandler::listUsers();
-        $this->render('paineldecontrole',['loggedUser'=>$this->loggedUser,'users'=>$users]);
+        $flash ='';
+        if(!empty($_SESSION['flash'])){
+            $flash = $_SESSION['flash'];
+            $_SESSION['flash']='';
+        }
+        $this->render('paineldecontrole',['loggedUser'=>$this->loggedUser,'users'=>$users,'flash'=>$flash]);
     }
    
 }

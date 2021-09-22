@@ -18,6 +18,11 @@
         <?php if(!empty($flash)): ?>
             <div class="flash"><?php echo $flash; ?></div>
         <?php endif;?>    
+        <label>
+            Avatar:<br/>
+            <input type="file" class="avatar" name="avatar" /><br/>
+            <!--<img class="image-edit" src="<?=$base;?>/assets/images/avatars/<?=$jogador->avatar; ?>" />-->
+        </label>
         <input placeholder="Digite seu Nome Completo" class="input" type="text" name="name" />
 
         <input placeholder="Digite seu E-mail" class="input" type="email" name="email" />
@@ -43,6 +48,7 @@
                 mask:'00/00/0000'
             }
         );
+       
     </script>
 </body>
 </html>

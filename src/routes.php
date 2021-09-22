@@ -25,3 +25,4 @@ $router->post('/ajax/dadosjogadores','AjaxController@dadosjogadores');
 $router->get('/calendario','CalendarioController@index');
 $router->post('/ajax/calendarioVoltar','AjaxController@calendarioVoltar');
 $router->post('/ajax/calendarioAdiantar','AjaxController@calendarioAdiantar');
+$router->post('/notasJogador','PerfilController@notasJogador');

@@ -299,7 +299,11 @@
     justify-content: center;
     align-items: center;
     color:black;
+    flex-direction: column;
     
+}
+.dadosCarreira{
+    margin-top: 30px;
 }
 .usuarioDadosAno h1{
     font-size: 60px;
@@ -387,14 +391,14 @@
     align-items: center;
     
 }
-.campoEscalacao{
+/*.campoEscalacao{
     display: flex;
     flex-direction: row;
     background-image: url("../../assets/images/Campo.jpg");
     background-size: cover;
     width: 1100px;
     height: 700px;
-}
+}*/
 .jogoDados{
     display: flex;
     flex-direction: row;
@@ -402,9 +406,9 @@
 }
 .listaEscalacao{
     display: flex;
-    
+    width: 50%;
 }
-.j1, .j2, .j3, .j4, .j5,.j6, .j7, .j8, .j9, .j10,.j11{
+/*.j1, .j2, .j3, .j4, .j5,.j6, .j7, .j8, .j9, .j10,.j11{
     width: 50px;
     height: 50px;
     border-radius: 50px;
@@ -462,6 +466,10 @@
 }
 .ataque .j11{
     margin-top:65px
+ }*/
+ .feed{
+     width: 50%;
+     justify-content:start;
  }
  
  .feed .box {
@@ -605,6 +613,14 @@
     color:white;
     font-weight: bold;
 }
+.flash {
+    background-color:darkred;
+    color:white;
+    margin-bottom: 5px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
 
 .modalEditarJogador{
     position:fixed;
@@ -647,12 +663,6 @@
     font-weight: bold;
     margin-bottom: 10px;
 }
-.modalEditarJogador .modalBody select{
-    font-weight: bold;
-    border-radius: 10px;
-    min-width: 90%;
-    text-align: center;
-}
 .modalEditarJogador .modalBody #jogadorSelecionar{
     padding: 10px;
     border: 1px solid white;
@@ -662,6 +672,62 @@
 .modalEditarJogador .modalBody #jogadorSelecionar:hover{
     background-color: white;
 }
+
+.modalNotasJogador{
+    position:fixed;
+    left:45%;
+    top:20%;
+    bottom:0;
+    right:0;
+    background-color:rgba(255, 255, 255, 0.5);
+    display:none;
+    transition: all ease .5s;
+    justify-content: center;
+    align-items: center;
+    overflow-y:auto;
+}
+.modalNotasJogador .modalBody form{
+    width:300px;
+    height: 450px;
+    background-color:#FF0000;
+    border-radius:10px;
+    box-shadow:0px 0px 15px black;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modalNotasJogador .modalBody label{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.modalNotasJogador .modalBody select{
+    font-weight: bold;
+    border-radius: 10px;
+    min-width: 90%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.modalNotasJogador .modalBody input{
+    height: 25px;
+    width: 250px;
+    background-color: white;
+    border-radius: 5px;
+    border:none;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.modalNotasJogador .modalBody #lancarNotasJogadores{
+    padding: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.modalNotasJogador .modalBody #lancarNotasJogadores:hover{
+    background-color: white;
+    width: 100%;
+}
+
 
 
 .modal{

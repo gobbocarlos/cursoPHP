@@ -18,6 +18,11 @@
             <?php if(!empty($flash)): ?>
                 <div class="flash"><?php echo $flash; ?></div>
             <?php endif;?>    
+            <label>
+                Novo Avatar:<br/>
+                <input type="file" name="avatar" /><br/>
+                <img class="image-edit" src="<?=$base;?>/assets/images/avatars/<?=$jogador['avatar'] ?>" />
+            </label>
             <input class="input" id="idCadastroInvisivel" type="text" name="jogadores" value="<?=$jogador['id']?>" readonly />
 
             <input placeholder="Digite seu Nome Completo" class="input" type="text" name="name" value="<?=$jogador['nome']?>" />
@@ -35,6 +40,7 @@
         
             <div id="Voltar"> <a class="botaoVoltar" href="<?=$base;?>/paineldecontrole">Voltar</a></div>
         </div>
+       
     </section>
 
     

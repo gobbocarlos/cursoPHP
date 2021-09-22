@@ -6,6 +6,8 @@ use\src\Handlers\UserHandler;
 use\src\Models\User;
 use\src\Models\Jogo;
 use\src\Models\Escalacao;
+use \src\Models\Nota;
+
 class PerfilController extends Controller {
     private $loggedUser;
     public function __construct(){
@@ -25,6 +27,7 @@ class PerfilController extends Controller {
         $anoAtual = date('Y');
         $usuario = User:: select()->where('id',$id)->one();
         $jogos = Escalacao:: select()->where('iduser',$id)->where('data','>=',$dataJogo1)->where('data','<=',$dataJogo2)->orderby('data')->get();
+        $notas = Nota:: select()->where('userid',$id)->one();
         $jogosPorAno[0] = [
             'ano'=>date('Y',strtotime($jogos[0]['data'])),
             'gol'=>$jogos[0]['gol'],
@@ -81,7 +84,31 @@ class PerfilController extends Controller {
             $assTotal = $assTotal + $value['ass'];
         }
         $notaTotal = $notaTotal / count($jogosPorAno);
-        $this->render('perfilJogador',['notaTotal'=>$notaTotal,'jogos'=>$jogosPorAno, 'loggedUser'=>$this->loggedUser,'usuario'=>$usuario,'jogosFeito'=>$jogosFeitos,'golsTotal'=>$golsTotal,'assTotal'=>$assTotal]);
+        $this->render('perfilJogador',['notas'=>$notas, 'notaTotal'=>$notaTotal,'jogos'=>$jogosPorAno, 'loggedUser'=>$this->loggedUser,'usuario'=>$usuario,'jogosFeito'=>$jogosFeitos,'golsTotal'=>$golsTotal,'assTotal'=>$assTotal]);
     }
-
+    public function notasJogador(){
+        $id = (int)$_POST['jogadores'];
+        $posicionamento = (int)filter_input(INPUT_POST,'posicionamento',FILTER_SANITIZE_NUMBER_INT);
+        $defesa = (int)filter_input(INPUT_POST,'defesa',FILTER_SANITIZE_NUMBER_INT);
+        $fisico = (int)filter_input(INPUT_POST,'fisico',FILTER_SANITIZE_NUMBER_INT);
+        $inteligencia = (int)filter_input(INPUT_POST,'inteligencia',FILTER_SANITIZE_NUMBER_INT);
+        $tecnica = (int)filter_input(INPUT_POST,'tecnica',FILTER_SANITIZE_NUMBER_INT);
+        $finalizacao = (int)filter_input(INPUT_POST,'finalizacao',FILTER_SANITIZE_NUMBER_INT);
+        if($id && $posicionamento && $defesa && $fisico && $inteligencia && $tecnica && $finalizacao){
+            Nota:: insert([
+                'userid'=>$id,
+                'posicionamento'=>$posicionamento,
+                'defesa'=>$defesa,
+                'fisico'=>$fisico,
+                'inteligencia'=>$inteligencia,
+                'tecnica'=>$tecnica,
+                'finalizacao'=>$finalizacao
+            ])->execute();
+        }
+        else{
+            $_SESSION['flash'] = 'Não foi possível salvar as notas.';
+        }
+        $this->redirect('/paineldecontrole');
+   }
+    
 }

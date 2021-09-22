@@ -7,9 +7,9 @@
             <div id="tituloTextoJogo">
                     <span id="titulo">Painel de controle</span>
                 </div>
-                 
+            
             <?php if(!empty($flash)): ?>
-                <div class="flash"><?php echo $flash; ?></div>
+                <div class="flash"><?php echo $flash;?></div>
             <?php endif;?> 
             <div class="paineldecontrole">
                 <div class="Jogos">
@@ -25,7 +25,7 @@
                     <div class="JogosBotoes">
                         <a class="botaoPainelDeControle" href="<?=$base;?>/cadastro">Novo Usuário</a>
                         <a class="botaoPainelDeControle"onclick="modalEditarJogadorOpen()" href="#modalEditarJogador">Editar Usuario</a>
-                        <a class="botaoPainelDeControle" href="">Notas</a>
+                        <a class="botaoPainelDeControle" onclick="modalNotasJogadorOpen()" href="#modalNotasJogador">Notas</a>
                     </div>
                 </div>
                 <div class="Galeria">
@@ -78,6 +78,35 @@
                 </div>
                 
             </div>
+            <div id="modalNotasJogador" class="modalNotasJogador">
+            
+                <div class="modalBody">
+                
+                    <form method="POST" action="<?=$base;?>/notasJogador">
+                        <a id="fecharModal" href="" onclick="closeModal()"><i class="fa fa-window-close-o" aria-hidden="true"></i></a>
+                        <label for="jogadores">Jogadores</label>    
+                        <select id="jogadores" name="jogadores">
+                            <?php foreach ($users as $newUser):?> 
+                                <option value="<?=$newUser->id?>"><?="$newUser->name"?></option>
+                            <?php endforeach; ?>   
+                        </select>
+                        <label for="finalizacao">Finalização</label>
+                        <input type="text" name="finalizacao" placeholder="Digite o número redondo." />
+                        <label for="inteligencia">Inteligência</label>
+                        <input type="text" name="inteligencia" placeholder="digite número redondo." />
+                        <label for="tecnica">Técnica</label>
+                        <input type="text" id="tecnica" name="tecnica" placeholder="digite número redondo." />
+                        <label for="posicionamento">Posicionamento</label>
+                        <input type="text" name="posicionamento" placeholder="digite número redondo." />
+                        <label for="fisico">Físico</label>
+                        <input type="text" name="fisico" placeholder="digite número redondo." />
+                        <label for="defesa">Defesa</label>
+                        <input type="text" name="defesa" placeholder="digite número redondo." />
+                        <button id="lancarNotasJogadores" type="submit"><i class="fa fa-check" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+            
+        </div>
            
         </div>
         <?php if(!empty($resultado)): ?>

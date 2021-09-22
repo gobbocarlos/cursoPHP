@@ -4,7 +4,7 @@
             <div class="feed-new-avatar">
                 <img src="<?=$base;?>/assets/images/avatars/<?=$loggedUser->avatar;?>" />
             </div>
-            <div class="feed-new-input-placeholder">O que você está pensando,<?=$loggedUser->name;?>?</div>
+            <div class="feed-new-input-placeholder">Qual a resenha,<?=$loggedUser->name;?>?</div>
             <div class="feed-new-input" contenteditable="true"></div>
             <div class="feed-new-send">
                 <img src="<?=$base;?>/assets/images/send.png" />

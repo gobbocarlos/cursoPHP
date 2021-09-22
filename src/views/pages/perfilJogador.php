@@ -3,23 +3,22 @@
     <?=$render('sidebar',['loggedUser'=>$loggedUser])?>
     <section class="main">
         <div class="tituloTextoPerfil">
-                <span id="tituloPerfilJogador">Carlos Henrique Cinti Gobbo</span>
+                <span id="tituloPerfilJogador"><?=$usuario['nome'];?></span>
         </div>
-        <div class="container">
-            <div class="usuarioPerfil">
+        <div>
                 <div class="usuarioPerfilFoto">
                     <div class="usuarioFoto">
 
                     </div>
                 </div>
-                <div class="usuarioDadosAno">
-                    <h2>CARREIRA</h2>
-                </div>
+                
+        </div>
+
+        <div class="container">
+            <div class="usuarioPerfil">
+                
                 <div class="usuarioPerfilDados">
-                    <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/CampoVertical.jpg"/><strong>-<?=$jogosFeito?></strong></div>
-                    <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Gol.jpg"/> <strong>-<?=$golsTotal?></strong></div>
-                    <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Bola.jpg"/> <strong>-<?=$assTotal?></strong></div>
-                    <div class="dadosPerfilJogos"><img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Bola.jpg"/> <strong>-<?=$notaTotal?></strong></div>
+                    <canvas id='graficoAranha'></canvas>
                 </div>
             </div>
             <div class="jogosCarreira">
@@ -45,8 +44,26 @@
                     </tbody>
                 </table>
             </div>
-        
+                       
+        </div>
+        <div class="usuarioDadosAno">
+            <h2>CARREIRA</h2>
+            <div class="dadosCarreira">
+                <div class="dadosPerfilJogos"><!--<img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/CampoVertical.jpg"/>--><strong>Jogos - <?=$jogosFeito?></strong></div>
+                <div class="dadosPerfilJogos"><!--<img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Gol.jpg"/>--><strong> Gols - <?=$golsTotal?></strong></div>
+                <div class="dadosPerfilJogos"><!--<img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Bola.jpg"/>--> <strong>Assistências - <?=$assTotal?></strong></div>
+                <div class="dadosPerfilJogos"><!--<img class="imagemFutebolPerfil" src="<?=$base;?>/assets/images/Bola.jpg"/>--> <strong>Nota Média - <?=$notaTotal?></strong></div>
+            </div>
         </div>
     </section>
 </section>
 <?=$render('footer');?>
+<script type="text/javascript">
+    var defesa = "<?php echo($notas['defesa']);?>"
+    var posicionamento = "<?php echo($notas['posicionamento']);?>"
+    var finalizacao = "<?php echo($notas['finalizacao']);?>"
+    var tecnica = "<?php echo($notas['tecnica']);?>"
+    var inteligencia = "<?php echo($notas['inteligencia']);?>"
+    var fisico = "<?php echo($notas['fisico']);?>"
+    window.onload = draw(defesa,posicionamento,finalizacao,tecnica,inteligencia,fisico);
+</script>
