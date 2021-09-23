@@ -30,10 +30,16 @@ class JogoController extends Controller {
             $page,
             $idJogo
         );
+        $escalacao = [];
+        $escalacao = Escalacao:: select()->where('idjogo',$idJogo)->get();
+       foreach ($escalacao as $key => $novaEscalacao) {
+           $escalacao[$key]['jogador'] = User::select()->where('id',$novaEscalacao['iduser'])->get();
+       }
         $this->render('jogo',[
             'loggedUser'=>$this->loggedUser,
             'feed'=>$feed,
-            'jogo'=>$jogo
+            'jogo'=>$jogo,
+            'escalacao'=>$escalacao
             ]);
     }
    public function jogoadd(){

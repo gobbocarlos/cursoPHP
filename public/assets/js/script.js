@@ -73,13 +73,14 @@ if(document.querySelector('.fic-item-field')) {
                 let data = new FormData();
                 data.append('id', id);
                 data.append('txt', txt);
-
-                let req = await fetch(BASE+'/ajax/comment', {
-                    method: 'POST',
-                    body: data
+                let req = await fetch(BASE+'/ajax/comment',{
+                  method:'POST',
+                  body:JSON.stringify({
+                      id:id,
+                      txt:txt
+                  })
                 });
-                let json = await req.json();
-
+              let json = await req.json();
                 if(json.error == '') {
                     let html = '<div class="fic-item row m-height-10 m-width-20">';
                     html += '<div class="fic-item-photo">';

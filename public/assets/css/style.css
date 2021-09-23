@@ -391,14 +391,7 @@
     align-items: center;
     
 }
-/*.campoEscalacao{
-    display: flex;
-    flex-direction: row;
-    background-image: url("../../assets/images/Campo.jpg");
-    background-size: cover;
-    width: 1100px;
-    height: 700px;
-}*/
+
 .jogoDados{
     display: flex;
     flex-direction: row;
@@ -408,65 +401,7 @@
     display: flex;
     width: 50%;
 }
-/*.j1, .j2, .j3, .j4, .j5,.j6, .j7, .j8, .j9, .j10,.j11{
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    overflow: hidden;
-}
-#jogador{
-    width: 60px;
-    height: 60px;
-}
-.goleiro{
-   padding-top:330px;
-   padding-left:80px;
-}
-.defesa{
-    padding-left: 100px;
-    padding-top:50px;
-    
-}
-.defesa .j2{
-   margin-top:45px;
-}
-.defesa .j3{
-    margin-top:65px
- }
- .defesa .j4{
-    margin-top:185px;
- }
- .defesa .j5{
-    margin-top:75px
- }
- .meio{
-    padding-left: 100px;
-    padding-top:50px;
-    margin-left:180px;
-}
-.meio .j6{
-   margin-top:45px
-}
-.meio .j7{
-    margin-top:65px
- }
- .meio .j8{
-    margin-top:185px;
- }
- .meio .j9{
-    margin-top:75px
- }
- .ataque{
-    padding-left: 100px;
-    padding-top:230px;
-    margin-left:180px;
-}
-.ataque .j10{
-   margin-top:45px
-}
-.ataque .j11{
-    margin-top:65px
- }*/
+
  .feed{
      width: 50%;
      justify-content:start;

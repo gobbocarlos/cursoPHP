@@ -128,15 +128,16 @@ class AjaxController extends Controller {
         exit;
     }
     public function comment(){
-        $array = ['error'=>''];   
-        $id= filter_input(INPUT_POST,'id');
-        $txt= filter_input(INPUT_POST,'txt');
-        if($id && $txt){
-                PostHandler::addComment($id,$txt,$this->loggedUser->id);
-                $array['link'] = '/perfil/'.$this->loggedUser->id ;
-                $array['avatar'] = '/images/avatars/'.$this->loggedUser->avatar;
-                $array['name'] = $this->loggedUser->name;
-                $array['body'] = $txt;
+        $array = ['error'=>''];
+        $data_inputs = json_decode(file_get_contents('php://input'), true);
+        if (is_array($data_inputs) && !empty($data_inputs)) {
+            $id = $data_inputs['id'];
+            $txt = $data_inputs['txt'];
+            PostHandler::addComment($id,$txt,$this->loggedUser->id);
+            $array['link'] = '/perfiljogador/'.$this->loggedUser->id ;
+            $array['avatar'] = '/assets/images/avatars/'.$this->loggedUser->avatar;
+            $array['name'] = $this->loggedUser->name;
+            $array['body'] = $txt;
         }
         header("Content-Type: application/json");
             echo json_encode($array);

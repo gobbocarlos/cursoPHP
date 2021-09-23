@@ -14,7 +14,7 @@
     </header>
     <section class="container main">
     
-        <form method="POST" action="<?=$base;?>/cadastroAtualizar">
+        <form method="POST" enctype="multipart/form-data" action="<?=$base;?>/cadastroAtualizar">
             <?php if(!empty($flash)): ?>
                 <div class="flash"><?php echo $flash; ?></div>
             <?php endif;?>    

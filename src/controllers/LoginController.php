@@ -62,7 +62,7 @@ class LoginController extends Controller {
                 if(isset($_FILES['avatar']) && !empty($_FILES['avatar']['tmp_name'])) {
                     $newAvatar = $_FILES['avatar'];
                     if(in_array($newAvatar['type'], ['image/jpeg', 'image/jpg', 'image/png'])) {
-                        $avatarName = $this->cutImageAvatar($newAvatar, 200, 200, 'images/avatars');
+                        $avatarName = $this->cutImageAvatar($newAvatar, 200, 200, 'assets/images/avatars');
                         //$updateFields['avatar'] = $avatarName;
                     }
                 }
@@ -101,7 +101,7 @@ class LoginController extends Controller {
                 $newAvatar = $_FILES['avatar'];
     
                 if(in_array($newAvatar['type'], ['image/jpeg', 'image/jpg', 'image/png'])) {
-                    $avatarName = $this->cutImageAvatar($newAvatar, 200, 200, 'images/avatars');
+                    $avatarName = $this->cutImageAvatar($newAvatar, 200, 200, 'assets/images/avatars');
                     //$updateFields['avatar'] = $avatarName;
                 }
             }

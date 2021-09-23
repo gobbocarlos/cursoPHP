@@ -12,6 +12,7 @@
             </div>
             <form class="feed-new-form" method="POST" action="<?=$base;?>/post/new">
                 <input type="hidden" name="body" />
+                <input type="hidden" name="idjogo" value="<?=$idjogo?>" />
             </form>
         </div>
     </div>
@@ -19,6 +20,7 @@
 <script type="text/javascript">
     let feedInput = document.querySelector('.feed-new-input');
     let feedSubmit = document.querySelector('.feed-new-send');
+    let feedForm = document.querySelector('.feed-new-form');
     feedSubmit.addEventListener('click',function(obj){
         let value = feedInput.innerText.trim();
         if(value!=''){

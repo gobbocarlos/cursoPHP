@@ -38,9 +38,9 @@ class PostHandler {
         return $posts;
     }
     public static function getHomeFeed($idUser,$page,$idJogo){
-        $perPage = 2;
+        $perPage = 5;
         //1. pegar os Post da lista ordenado por data
-        $postList = Post::select()->where('idjogo',$idJogo)->orderby('datacriacao','desc')->page($page,$perPage)->get();
+        $postList = Post::select()->where('idjogo',$idJogo)->orderby('datacriacao','desc')/*->page($page,$perPage)*/->get();
         $total = Post::select()->where('idjogo',$idJogo)->count();
         $pageCount = ceil($total/$perPage);
         //3. Transformar o resultado em objetos do Models.
@@ -56,7 +56,7 @@ class PostHandler {
         PostComment::insert([
             'idpost'=>$id,
             'iduser'=>$loggedUserId,
-            'createdat'=>date('Y-m-d H:i:s'),
+            'datacriacao'=>date('Y-m-d H:i:s'),
             'body'=>$txt
         ])->execute();
    }
@@ -66,7 +66,7 @@ class PostHandler {
         if(count($post)>0){
             $post = $post[0];
              //2.Deletar Likes e comments.
-             PostLike::delete()->where('idpost',$id)->execute();
+             //PostLike::delete()->where('idpost',$id)->execute();
              PostComment::delete()->where('idpost',$id)->execute();
              //3.Se o post for foto, deletar o arquivo.
            

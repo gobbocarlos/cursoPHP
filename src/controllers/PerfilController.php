@@ -38,24 +38,7 @@ class PerfilController extends Controller {
         $jogosFeitos = count($jogos);
         $ano1 = date('Y',strtotime($jogos[0]['data']));
         $cont = 0;
-        /*foreach ($jogos as $key => $jogo) {
-            if(date('Y',strtotime($jogo['data']))==$ano1){
-                $jogosPorAno[$cont]['ano'] = date('Y',strtotime($jogo['data']));
-                $jogosPorAno[$cont]['gol'] = $jogosPorAno[$cont]['gol'] + $jogo['gol'];
-                $jogosPorAno[$cont]['ass'] = $jogosPorAno[$cont]['ass'] + $jogo['assistencia'];
-                $jogosPorAno[$cont]['nota'] = $jogosPorAno[$cont]['nota'] + $jogo['nota'];
-                $jogosPorAno[$cont]['jogos'] = $jogosPorAno[$cont]['jogos'] + 1;
-            }
-            else{
-                $cont++;
-                $jogosPorAno[$cont]['ano'] = date('Y',strtotime($jogo['data']));
-                $jogosPorAno[$cont]['gol'] =  $jogo['gol'];
-                $jogosPorAno[$cont]['ass'] =  $jogo['assistencia'];
-                $jogosPorAno[$cont]['nota'] =  $jogo['nota'];
-                $jogosPorAno[$cont]['jogos'] =  1;
-                $ano1 = date('Y',strtotime($jogo['data']));
-            }
-        }*/
+       
         for ($i=1; $i <count($jogos) ; $i++) { 
             if(date('Y',strtotime($jogos[$i]['data']))==$ano1){
                 $jogosPorAno[$cont]['ano'] = date('Y',strtotime($jogos[$i]['data']));

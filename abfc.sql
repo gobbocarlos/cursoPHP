@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Set-2021 às 21:30
+-- Tempo de geração: 24-Set-2021 às 01:47
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 7.4.19
 
@@ -123,6 +123,15 @@ CREATE TABLE `postcomments` (
   `iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `postcomments`
+--
+
+INSERT INTO `postcomments` (`id`, `body`, `datacriacao`, `idpost`, `iduser`) VALUES
+(1, 'Zero pra ele....', '2021-09-23', 2, 2),
+(2, 'Quebrou....', '2021-09-23', 2, 2),
+(3, 'Mão de alface', '2021-09-23', 2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -136,6 +145,18 @@ CREATE TABLE `posts` (
   `iduser` int(11) NOT NULL,
   `idjogo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `posts`
+--
+
+INSERT INTO `posts` (`body`, `datacriacao`, `id`, `iduser`, `idjogo`) VALUES
+('Que frango, Tafa!', '2021-09-23', 2, 2, 7),
+('Lateral fraco....', '2021-09-23', 3, 2, 7),
+('Treinero inventando moda...', '2021-09-23', 4, 2, 7),
+('teste post 4', '2021-09-23', 5, 2, 7),
+('teste post 5', '2021-09-23', 7, 2, 7),
+('teste post 6', '2021-09-23', 8, 2, 7);
 
 -- --------------------------------------------------------
 
@@ -158,8 +179,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nome`, `avatar`, `aniversario`, `email`, `senha`, `token`) VALUES
-(2, 'Carlos Gobbo', 'kk.jpg', '1983-03-03', 'kkgobbo@gmail.com', '$2y$10$qKP3Uur9Jr4N5QkU7E8omuye34uo3R4hJ3ok6rdb/wA4PTQPjocZ6', 'a533cca80a78548b413032835b25a43b'),
-(3, 'Pedro Paulo Pereira', '', '1984-09-12', 'ppp@gmail.com', '$2y$10$pNRBYmHpIZE.CgPCKnFTNuBByzIGHHUe3NfGBxivhIxkHrpymSYua', 'a8ab41db4e2914644be4b22ccfe47ecd');
+(2, 'Carlos Gobbo', 'ae7a04a8172624f9e655c5a3ffe7ceb4.jpg', '1983-03-03', 'kkgobbo@gmail.com', '$2y$10$qKP3Uur9Jr4N5QkU7E8omuye34uo3R4hJ3ok6rdb/wA4PTQPjocZ6', '91307efab7c136a0409f82c207466558'),
+(3, 'Pedro Paulo Pereira', 'a525cbfbf37632f228972de53759a071.jpg', '1984-09-12', 'ppp@gmail.com', '$2y$10$pNRBYmHpIZE.CgPCKnFTNuBByzIGHHUe3NfGBxivhIxkHrpymSYua', 'a8ab41db4e2914644be4b22ccfe47ecd'),
+(6, 'Henrique Cinti', 'b9a79a76fa1cd6124ca104bce70fe9ab.jpg', '1983-03-03', 'gobbocarlos@hotmail.com', '$2y$10$AfK2i8ixrKtt1R0luLWDBOiP0oazB3FQU2qYr0ExlNbtYliuHEmvu', '175a6b2759b9ffb3a85b70f201ad6575');
 
 --
 -- Índices para tabelas despejadas
@@ -221,19 +243,19 @@ ALTER TABLE `jogos`
 -- AUTO_INCREMENT de tabela `postcomments`
 --
 ALTER TABLE `postcomments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

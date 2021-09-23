@@ -57,9 +57,11 @@
     background-color: lightgray;
 }
 .feed-item-body {
+    display: flex;
     color:#333;
     line-height: 20px;
     font-size:14px;
+    justify-content: center;
 }
 .feed-item-body img {
     max-width:100%;
