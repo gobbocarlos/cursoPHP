@@ -29,6 +29,8 @@
 
         <input placeholder="Digite sua Senha" class="input" type="password" name="password" />
 
+        <input placeholder="Confirme sua Senha" class="input" type="password" name="password2" />
+
         <input placeholder="Digite sua Data de Nascimento" class="input" type="text" name="birthdate" id="birthdate" />
 
         <input class="button" type="submit" value="Cadastrar" />

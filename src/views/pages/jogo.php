@@ -12,14 +12,14 @@
             <div class="feed">
                 <?=$render('feed-editor',['loggedUser'=>$loggedUser,'idjogo'=>$jogo['id']]);?>
                 <?php foreach($feed['posts'] as $feedItem): ?>
-                        <?= $render('feed-item',[
-                            'data'=>$feedItem,
-                            'loggedUser'=>$loggedUser
-                        ]);?>      
+                    <?= $render('feed-item',[
+                        'data'=>$feedItem,
+                        'loggedUser'=>$loggedUser
+                    ]);?>      
                 <?php endforeach; ?>
                 <div class="feed-pagination">
                     <?php for($q=0;$q<$feed['pageCount'];$q++):?>
-                            <a class="<?=($q==$feed['currentPage'] ? 'active' : '')?>" href="<?=$base;?>/jogo?page=<?=$q;?>/<?=$jogo['id']?>"><?=$q+1;?></a>
+                            <a id="numeroPaginacao" class="<?=($q==$feed['currentPage'] ? 'active' : '')?>" href="<?=$base;?>/jogo/<?=$jogo['id']?>?page=<?=$q;?>"><?=$q+1;?></a>
                     <?php endfor; ?>           
                 </div>
             </div>

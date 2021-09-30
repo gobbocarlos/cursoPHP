@@ -1,6 +1,9 @@
 .feed-item {
 
 }
+.feed{
+    overflow-y: scroll;
+}
 .feed-item-head {
     align-items: center;
 }
@@ -105,6 +108,7 @@
 
 .fic-item-photo {
     margin-right: 10px;
+    min-width: 45px;
 }
 .fic-item-photo img {
     width:35px;
@@ -131,4 +135,27 @@
     background-color:#eee;
     font-size:13px;
     padding:0 15px;
+}
+.feed-pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.feed-pagination a{
+    border: solid 1px #333;
+    background-color: #FF0000;
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
+.feed-pagination a:hover{
+    background-color: white;
+    color: #FF0000;
+}
+
+.feed-pagination .active{
+    background-color: white;
+    color: #FF0000;
+    font-weight: bold;
 }

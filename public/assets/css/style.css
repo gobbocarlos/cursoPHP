@@ -274,10 +274,12 @@
     align-items: center;
 }
 .usuarioFoto{
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
-    background-image: url("../../assets/images/avatars/kk.jpg");
+    min-width: 100px;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
+    overflow: hidden;
 }
 .usuarioPerfilDados{
     display:flex;
@@ -396,6 +398,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    overflow-y: auto;
+    max-height: 88vh;
 }
 .listaEscalacao{
     display: flex;
@@ -532,6 +536,14 @@
     margin: 20px;
     padding: 20px;
 }
+.paineldecontrole .Financeiro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+}
 .paineldecontrole .botaoPainelDeControle{
     padding: 10px;
     background-color: #FFF;
@@ -589,6 +601,56 @@
     margin-bottom: 20px;
     text-align: center;
 }*/
+.modalLancarFinanceiro{
+    position:fixed;
+    left:45%;
+    top:20%;
+    bottom:0;
+    right:0;
+    background-color:rgba(255, 255, 255, 0.5);
+    display:none;
+    transition: all ease .5s;
+    justify-content: center;
+    align-items: center;
+    overflow-y:auto;
+}
+.modalLancarFinanceiro .modalBody form{
+    width:300px;
+    height: 350px;
+    background-color:#FF0000;
+    border-radius:10px;
+    box-shadow:0px 0px 15px black;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modalLancarFinanceiro .modalBody label{
+    color:white;
+}
+.modalLancarFinanceiro .modalBody input{
+    height: 25px;
+    width: 250px;
+    background-color: white;
+    border-radius: 5px;
+    border:none;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.modalLancarFinanceiro .modalBody select{
+    font-weight: bold;
+    border-radius: 10px;
+    min-width: 90%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.modalLancarFinanceiro .modalBody #lancarFinanceiro{
+    padding: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
  #fecharModal{
    align-self: flex-end;
    padding: 5px;
@@ -930,4 +992,168 @@
     background-color:lightgray ;
     font-weight: bold;
 }
+/*página financeiro*/
+.pagamentos{
+    margin-top: 10px;
+}
+.tabelaPagamentos{
+    width: 100%;
+}
+.tabelaPagamentos thead{
+    background-color: #FF0000;
+    color: white;
+    
+}
+.tabelaPagamentos tbody td{
+    
+    text-align: center;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+   
+}
+.tabelaPagamentos #usuarioId{
+    display: none;
+}
+.tabelaPagamentos tbody td:first-child{
+    width: 5%;
+}
+.tabelaPagamentos tbody td:first-child + td{
+    width: 10%;
+}
+.tabelaPagamentos tbody td:first-child + td + td{
+    width: 0%;
+}
+.tabelaPagamentos tbody td:first-child + td + td + td{
+    width: 40%;
+}
+.tabelaPagamentos tbody td:first-child + td + td + td + td{
+    width: 10%;
+}
+.tabelaPagamentos tbody td:first-child + td + td + td + td + td{
+    width: 10%;
+}
+.tabelaPagamentos tbody td:first-child + td + td + td + td + td + td{
+    width: 15%;
+}
+.tabelaPagamentos tbody td:first-child + td + td + td + td + td + td + td{
+    width: 15%;
+}
+#botaoAcoesFinanceiro{
+    margin:5px;
+    padding:5px;
+}
+#botaoAcoesFinanceiro:hover{
+    border: 1px solid black;
+}
+.tabelaPagamentos tbody tr:hover{
+    background-color:lightgray ;
+    font-weight: bold;
+}
+.modalEditarFinanceiro{
+    position:fixed;
+    left:45%;
+    top:20%;
+    bottom:0;
+    right:0;
+    background-color:rgba(255, 255, 255, 0.5);
+    display:none;
+    transition: all ease .5s;
+    justify-content: center;
+    align-items: center;
+    overflow-y:auto;
+}
+.modalEditarFinanceiro .modalBody form{
+    width:300px;
+    height: 350px;
+    background-color:#FF0000;
+    border-radius:10px;
+    box-shadow:0px 0px 15px black;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modalEditarFinanceiro .modalBody label{
+    color:white;
+}
+.modalEditarFinanceiro .modalBody input{
+    height: 25px;
+    width: 250px;
+    background-color: white;
+    border-radius: 5px;
+    border:none;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.modalEditarFinanceiro .modalBody #usuarioIdEditar{
+    display: none;
+    z-index: -99;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+.modalEditarFinanceiro .modalBody #idEditar{
+    display: none;
+    z-index: -99;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+.modalEditarFinanceiro .modalBody select{
+    font-weight: bold;
+    border-radius: 10px;
+    min-width: 90%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.modalEditarFinanceiro .modalBody #lancarFinanceiro{
+    padding: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+    margin-top: 20px;
+}
 
+
+/*página financeiroPerfil*/
+.pagamentosPerfil{
+    margin-top: 10px;
+    min-width: 100%;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+.tabelaPagamentosPerfil{
+    width: 100%;
+}
+.tabelaPagamentosPerfil thead{
+    background-color: #FF0000;
+    color: white;
+    
+}
+.tabelaPagamentosPerfil tbody td{
+    
+    text-align: center;
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+   
+}
+.tabelaPagamentosPerfil tbody td:first-child{
+    width: 20%;
+}
+.tabelaPagamentosPerfil tbody td:first-child + td{
+    width: 10%;
+}
+.tabelaPagamentosPerfil tbody td:first-child + td + td{
+    width: 50%;
+}
+.tabelaPagamentosPerfil tbody td:first-child + td + td + td{
+    width: 10%;
+}
+.tabelaPagamentosPerfil tbody td:first-child + td + td + td + td{
+    width: 10%;
+}
+.tabelaPagamentosPerfil tbody td:first-child + td + td + td + td + td{
+    width: 10%;
+}
+.tabelaPagamentosPerfil tbody tr:hover{
+    background-color:lightgray ;
+    font-weight: bold;
+}

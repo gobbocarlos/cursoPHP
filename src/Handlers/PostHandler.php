@@ -40,7 +40,7 @@ class PostHandler {
     public static function getHomeFeed($idUser,$page,$idJogo){
         $perPage = 5;
         //1. pegar os Post da lista ordenado por data
-        $postList = Post::select()->where('idjogo',$idJogo)->orderby('datacriacao','desc')/*->page($page,$perPage)*/->get();
+        $postList = Post::select()->where('idjogo',$idJogo)->orderby('datacriacao','desc')->page($page,$perPage)->get();
         $total = Post::select()->where('idjogo',$idJogo)->count();
         $pageCount = ceil($total/$perPage);
         //3. Transformar o resultado em objetos do Models.

@@ -5,6 +5,7 @@
        <div class="tituloTexto">
             <span id="titulo">Aguias do Bosque Futebol & Cerveja</span>
         </div>
+       
         <div class="tituloImagens">
             <div clas="tituloLogo">
                 <img src="<?=$base;?>/assets/images/Escudo.jpg" />
@@ -14,7 +15,7 @@
                 <p><strong>Clube criado em Fevereiro de 2020, o <b class="iniciais">A</b>guias do <b class="iniciais">B</b>osque <b class="iniciais">F</b>utebol & <b class="iniciais">C</b>erveja... </strong></p>
                 </div>
                 <div id="botaoCaminhoDescricao">
-                    <a id="botaoCaminho" href="">Sobre</a>
+                    <a id="botaoCaminho" href="<?=$base;?>/sobre">Sobre</a>
                 </div>
                 
             </div>
@@ -32,7 +33,7 @@
                 <div id="imagemCalendarioFundo">
                     <img id="calendario" src="<?=$base;?>/assets/images/Calendario.jpg" />
                 </div>
-                <a id="botaoCaminho1" href="">Entrar</a>
+                <a id="botaoCaminho1" href="<?=$base;?>/calendario">Entrar</a>
             </div>
             <div class="link2">
                     <div class="linkDescricao">

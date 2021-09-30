@@ -31,6 +31,8 @@
 
             <input placeholder="Digite sua nova Senha" class="input" type="password" name="password" />
 
+            <input placeholder="Confirme sua Senha" class="input" type="password" name="password2" />
+            
             <input placeholder="Digite sua Data de Nascimento" class="input" type="text" name="birthdate" id="birthdate" value="<?=date('d/m/Y',strtotime($jogador['aniversario']))?>" />
 
             <input class="button" type="submit" value="Atualizar" />

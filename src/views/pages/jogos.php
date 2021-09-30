@@ -25,7 +25,7 @@
                             <td>"<?=$jogo['golspro'];?> x <?=$jogo['golscontra'];?>"</td>
                             <td>
                                 <a href="<?=$base;?>/jogo/<?=$jogo['id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                <?php if($loggedUser->id==1 ||$loggedUser->id==2):?>
+                                <?php if($loggedUser->email=='ppp@gmail.com' ||$loggedUser->email=='gustainde@hotmaill.com'||$loggedUser->email=='kkgobbo@gmail.com'):?>
                                     <a href="<?=$base;?>/jogoeditar/<?=$jogo['id'];?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                 <?php endif;?>
                             </td>

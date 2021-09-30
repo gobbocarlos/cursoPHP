@@ -6,7 +6,7 @@
             
             <div id="tituloTextoJogo">
                     <span id="titulo">Painel de controle</span>
-                </div>
+            </div>
             
             <?php if(!empty($flash)): ?>
                 <div class="flash"><?php echo $flash;?></div>
@@ -34,6 +34,14 @@
                     
                         <a class="botaoPainelDeControle" href="">Nova Foto</a>
                         <a class="botaoPainelDeControle" href="">Novo Vídeo</a>
+                    </div>
+                </div>
+                <div class="Financeiro">
+                    <div class="divPainelDeControle"><h1 class="tituloDivPainelDeControle">Financeiro</h1></div>
+                    <div class="JogosBotoes">
+                        <a class="botaoPainelDeControle" href="<?=$base;?>/financeiro">Histórico</a>
+                        <a class="botaoPainelDeControle" onclick="modalLancarFinanceiroOpen()" href="#modalLancarFinanceiro">Lançar</a>
+                        <a class="botaoPainelDeControle" href="">Editar</a>
                     </div>
                 </div>
             </div>
@@ -106,8 +114,43 @@
                     </form>
                 </div>
             
-        </div>
-           
+            </div>
+            <div id="modalLancarFinanceiro" class="modalLancarFinanceiro">
+            
+                <div class="modalBody">
+                   
+                    <form method="POST" action="<?=$base;?>/financeiroLancar">
+                        <a id="fecharModal" href="" onclick="closeModal()"><i class="fa fa-window-close-o" aria-hidden="true"></i></a>
+                        <label for="jogadores">Jogadores</label>    
+                        <select id="jogadores" name="jogadores">
+                            <?php foreach ($users as $newUser):?> 
+                                <option value="<?=$newUser->id?>"><?="$newUser->name"?></option>
+                            <?php endforeach; ?>   
+                        </select>
+                        <label for="valor">Valor</label>
+                        <input type="number" name="valor" value=50 placeholder="Digite o valor da mensalidade." />
+                        <label for="data">Data do Pagamento</label>
+                        <input type="date" id="data" name="data" />
+                        <label for="meses">Mês de Referência</label>
+                        <select id="meses" name="meses">
+                                <option value="1"><?="Janeiro"?></option>
+                                <option value="2"><?="Fevereiro"?></option>
+                                <option value="3"><?="Março"?></option>
+                                <option value="4"><?="Abril"?></option>
+                                <option value="5"><?="Maio"?></option>
+                                <option value="6"><?="Junho"?></option>
+                                <option value="7"><?="Julho"?></option>
+                                <option value="8"><?="Agosto"?></option>
+                                <option value="9"><?="Setembro"?></option>
+                                <option value="10"><?="Outubro"?></option>
+                                <option value="11"><?="Novembro"?></option>
+                                <option value="12"><?="Dezembro"?></option>
+                        </select>
+                        <button id="lancarFinanceiro" type="submit"><i class="fa fa-check" aria-hidden="true"></i></button>
+                    </form>
+                </div>
+                
+            </div>
         </div>
         <?php if(!empty($resultado)): ?>
             <h1>a <?php echo $resultado ?></h1>

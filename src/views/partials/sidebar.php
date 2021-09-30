@@ -30,9 +30,12 @@
             <a href="<?=$base;?>/calendario">
             Calendário
             </a>
-            <a href="<?=$base;?>/paineldecontrole">
-            Painel de Controle
-            </a>
+            <?php if ($loggedUser->email=='ppp@gmail.com' ||$loggedUser->email=='gustainde@hotmaill.com'||$loggedUser->email=='kkgobbo@gmail.com'):?>
+                <a href="<?=$base;?>/paineldecontrole">
+                Painel de Controle
+                </a>
+            <?php endif;?>
+           
         </div>
        <div class="login">
             <a href="<?=$base;?>/login">Entrar</a>

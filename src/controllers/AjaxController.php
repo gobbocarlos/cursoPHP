@@ -5,7 +5,9 @@ use \src\handlers\UserHandler;
 use \src\handlers\PostHandler;
 use \src\Models\Jogo;
 use \src\Models\Escalacao;
-use \src\handlers\JogoHandler;
+use \src\Handlers\JogoHandler;
+use \src\Handlers\FinanceiroHandler;
+
 class AjaxController extends Controller {
     private $loggedUser;
     public function __construct(){
@@ -374,5 +376,116 @@ class AjaxController extends Controller {
         }
         return $mes;
     }
-    
+    public function financeiroVoltar(){
+        $array = ['error'=>''];  
+        $data_inputs = json_decode(file_get_contents('php://input'), true);
+        if (is_array($data_inputs) && !empty($data_inputs)) {
+            $ano = $data_inputs['ano'];
+            $mes = $data_inputs['mes'];
+            $mesNovo = AjaxController::nomeParaNumero($mes);
+            $mesNovo = $mesNovo - 1;
+            if($mesNovo==0){
+                $mesNovo = 12;
+                $ano = $ano-1;
+            }
+            $data1 = date($ano.'/0'.$mesNovo.'/01');
+            $ultimoDia = cal_days_in_month(CAL_GREGORIAN, $mesNovo, $ano);
+            if($ultimoDia==31){
+                $data2 = date($ano.'/0'.$mesNovo.'/31');
+            }
+            else if($ultimoDia==29){
+                $data2 = date($ano.'/0'.$mesNovo.'/29');
+            }
+            else if($ultimoDia==28){
+                $data2 = date($ano.'/0'.$mesNovo.'/28');
+            }
+            else{
+                $data2 = date($ano.'/0'.$mesNovo.'/30');
+            }
+            $nomeMesNovo = AjaxController::numeroParaNome($mesNovo);
+            /*$jogosPrimeiroQuadro = JogoHandler:: procurarPorQuadro(1,$dataJogo1,$dataJogo2);
+            $jogosSegundoQuadro = JogoHandler:: procurarPorQuadro(2,$dataJogo1,$dataJogo2);
+            if(count($jogosPrimeiroQuadro)==0){
+                $array['jogosPrimeiroQuadro'] ='Jogo não marcado';
+            }
+            else{
+                $array['jogosPrimeiroQuadro'] = $jogosPrimeiroQuadro;
+            }
+            if(count($jogosSegundoQuadro)==0){
+                $array['jogosSegundoQuadro'] = 'Jogo não marcado.';
+            }
+            else{
+                $array['jogosSegundoQuadro'] = $jogosSegundoQuadro;
+            }*/
+            $pagamentos = FinanceiroHandler:: procurar($data1,$data2);
+            if(count($pagamentos)>0){
+                $array['pagamentos']=$pagamentos;
+            }
+           $array['nomeMesNovo'] = $nomeMesNovo;
+           $array['ano'] = $ano;
+        }
+        else {
+            $array['error'] = "Dados não enviados";
+        }
+
+        header("Content-Type: application/json");   
+        echo json_encode($array);
+        exit;
+    }
+    public function financeiroAdiantar(){
+        $array = ['error'=>''];  
+        $data_inputs = json_decode(file_get_contents('php://input'), true);
+        if (is_array($data_inputs) && !empty($data_inputs)) {
+            $ano = $data_inputs['ano'];
+            $mes = $data_inputs['mes'];
+            $mesNovo = AjaxController::nomeParaNumero($mes);
+            $mesNovo = $mesNovo + 1;
+            if($mesNovo==13){
+                $mesNovo=1;
+                $ano = $ano + 1;
+            }
+            $data1 = date($ano.'/0'.$mesNovo.'/01');
+            $ultimoDia = cal_days_in_month(CAL_GREGORIAN, $mesNovo, $ano);
+            if($ultimoDia==31){
+                $data2 = date($ano.'/0'.$mesNovo.'/31');
+            }
+            else if($ultimoDia==29){
+                $data2 = date($ano.'/0'.$mesNovo.'/29');
+            }
+            else if($ultimoDia==28){
+                $data2 = date($ano.'/0'.$mesNovo.'/28');
+            }
+            else{
+                $data2 = date($ano.'/0'.$mesNovo.'/30');
+            }
+            $nomeMesNovo = AjaxController::numeroParaNome($mesNovo);
+            /*$jogosPrimeiroQuadro = JogoHandler:: procurarPorQuadro(1,$dataJogo1,$dataJogo2);
+            $jogosSegundoQuadro = JogoHandler:: procurarPorQuadro(2,$dataJogo1,$dataJogo2);
+            if(count($jogosPrimeiroQuadro)==0){
+                $array['jogosPrimeiroQuadro'] ='Jogo não marcado';
+            }
+            else{
+                $array['jogosPrimeiroQuadro'] = $jogosPrimeiroQuadro;
+            }
+            if(count($jogosSegundoQuadro)==0){
+                $array['jogosSegundoQuadro'] = 'Jogo não marcado.';
+            }
+            else{
+                $array['jogosSegundoQuadro'] = $jogosSegundoQuadro;
+            }*/
+            $pagamentos = FinanceiroHandler:: procurar($data1,$data2);
+            if(count($pagamentos)>0){
+                $array['pagamentos']=$pagamentos;
+            }
+           $array['nomeMesNovo'] = $nomeMesNovo;
+           $array['ano'] = $ano;
+        }
+        else {
+            $array['error'] = "Dados não enviados";
+        }
+
+        header("Content-Type: application/json");   
+        echo json_encode($array);
+        exit;
+    }
 }

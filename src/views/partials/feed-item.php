@@ -49,6 +49,7 @@
         <div class="feed-item-comments">
                 <div class="feed-item-comments-area">
                     <?php foreach($data->comments as $item):?>
+                        <hr/>
                         <div class="fic-item row m-height-10 m-width-20">
                             <div class="fic-item-photo">
                                 <a href="<?=$base;?>/perfilJogador/<?=$item['user']['id'];?>"><img src="<?=$base;?>/assets/images/avatars/<?=$item['user']['avatar'];?>" /></a>
@@ -56,6 +57,7 @@
                             <div class="fic-item-info">
                                 <a href="<?=$base;?>/perfilJogador/<?=$item['user']['id'];?>"><?=$item['user']['nome'];?></a>
                                 <span class="fidi-date"><?=date('d/m/Y',strtotime($item['datacriacao']));?></span>
+                                <br/>
                                 <br/>
                                 <?=$item['body'];?>
                             </div>

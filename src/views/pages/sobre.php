@@ -1,6 +1,6 @@
 <?php $render('header'); ?>
 <section class="container">
-    <?php $render('sidebar');?>
+    <?php $render('sidebar',['loggedUser'=>$loggedUser]);?>
     <section class="main">
         <div class="tituloSobre"><h4 id="titulo">Nossa História</h4></div>
         <div class="descricaoSobre">

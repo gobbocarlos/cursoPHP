@@ -6,11 +6,11 @@
                 <span id="tituloPerfilJogador"><?=$usuario['nome'];?></span>
         </div>
         <div>
-                <div class="usuarioPerfilFoto">
-                    <div class="usuarioFoto">
-
-                    </div>
+            <div class="usuarioPerfilFoto">
+                <div class="usuarioFoto">
+                    <img src="<?=$base;?>/assets/images/avatars/<?=$usuario['avatar']?>" />
                 </div>
+            </div>
                 
         </div>
 
